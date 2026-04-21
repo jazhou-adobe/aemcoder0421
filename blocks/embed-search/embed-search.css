@@ -1,0 +1,19 @@
+/* Embed Search - Course search widget */
+
+.embed-search {
+  width: 100%;
+  text-align: center;
+  margin: 16px auto;
+  max-width: 800px;
+}
+
+.embed-search > div {
+  display: flex;
+  justify-content: center;
+}
+
+.embed-search iframe {
+  width: 100%;
+  border: 0;
+  border-radius: 12px;
+}

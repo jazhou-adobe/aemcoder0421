@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "url": "https://www.flinders.edu.au/",
+  "path": "index",
+  "timestamp": "2026-04-20T23:58:34.640Z",
+  "title": "Flinders University - Adelaide, South Australia - Flinders University",
+  "template": "homepage",
+  "blocks": [
+    "hero-banner",
+    "embed-ticker",
+    "embed-search",
+    "carousel-feature",
+    "cards-icon",
+    "cards-icon",
+    "cards-icon",
+    "cards-news"
+  ]
+}

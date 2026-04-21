@@ -1,0 +1,197 @@
+/* Student Stories Block */
+
+/* Override gold section - student stories should be on white */
+.student-stories-container .default-content-wrapper:has(h2#student-stories),
+.student-stories-container .student-stories-wrapper {
+  background-color: #fff;
+}
+
+.student-stories-container .student-stories-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px 48px;
+}
+
+/* Tabs - pill shaped, gold active */
+.student-stories .student-stories-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 32px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.student-stories .student-stories-tab {
+  padding: 10px 24px;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  background: transparent;
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-s);
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: var(--button-transition);
+}
+
+.student-stories .student-stories-tab:hover {
+  border-color: var(--flinders-navy);
+  color: var(--flinders-navy);
+}
+
+.student-stories .student-stories-tab.active {
+  background-color: var(--flinders-gold);
+  border-color: var(--flinders-gold);
+  color: var(--flinders-navy);
+}
+
+/* Cards */
+.student-stories .student-stories-cards {
+  position: relative;
+}
+
+.student-stories .student-stories-card {
+  display: none;
+  gap: 32px;
+  align-items: stretch;
+}
+
+.student-stories .student-stories-card.active {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Video area */
+.student-stories .student-stories-video {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: var(--flinders-navy);
+  flex-shrink: 0;
+}
+
+.student-stories .student-stories-video img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.student-stories .student-stories-video iframe {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+}
+
+.student-stories .student-stories-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgb(35 45 75 / 60%);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--button-transition);
+}
+
+.student-stories .student-stories-play:hover {
+  background-color: var(--flinders-navy);
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* Content area */
+.student-stories .student-stories-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Category tag */
+.student-stories .student-stories-tag {
+  display: inline-block;
+  background-color: var(--flinders-gold);
+  color: var(--flinders-navy);
+  font-size: var(--body-font-size-xs);
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: 50px;
+  margin-bottom: 16px;
+  width: fit-content;
+}
+
+.student-stories .student-stories-content blockquote {
+  font-family: var(--heading-font-family);
+  font-size: clamp(24px, 3.5vw, 36px);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--flinders-navy);
+  margin: 0 0 20px;
+  padding: 0;
+  border: none;
+}
+
+.student-stories .student-stories-details {
+  font-size: var(--body-font-size-m);
+  color: var(--text-color);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Intro heading area on white background */
+.student-stories-container .default-content-wrapper:has(h2#student-stories) {
+  text-align: center;
+  padding: 48px 24px 8px;
+  max-width: unset;
+  margin: 0;
+}
+
+.student-stories-container .default-content-wrapper:has(h2#student-stories) h2 {
+  color: var(--flinders-navy);
+  text-align: center;
+}
+
+.student-stories-container .default-content-wrapper:has(h2#student-stories) p {
+  max-width: 800px;
+  margin: 0 auto;
+  color: var(--text-color);
+}
+
+.student-stories-container .default-content-wrapper:has(h2#student-stories) mark {
+  background-color: var(--flinders-gold);
+  color: inherit;
+  padding: 2px 0;
+}
+
+@media (width >= 600px) {
+  .student-stories .student-stories-card.active {
+    flex-direction: row;
+  }
+
+  .student-stories .student-stories-video {
+    width: 40%;
+    aspect-ratio: 3 / 4;
+  }
+
+  .student-stories .student-stories-content {
+    width: 60%;
+    padding: 24px 0;
+  }
+}
+
+@media (width >= 900px) {
+  .student-stories-container .student-stories-wrapper {
+    padding: 0 48px;
+  }
+
+  .student-stories .student-stories-content blockquote {
+    font-size: 36px;
+  }
+}

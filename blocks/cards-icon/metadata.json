@@ -1,0 +1,31 @@
+{
+  "variantName": "cards-icon",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-04-20T23:28:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.flinders.edu.au/",
+    "originPage": "university homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "icon-feature-cards",
+    "imagePattern": "icon"
+  },
+  "contentPattern": {
+    "structure": "icon + heading + description + link per card",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": ["campus life topics", "research areas", "feature highlights with icons", "getting started resources"],
+    "notSuitableFor": ["photo-heavy cards", "news article cards", "video cards"]
+  },
+  "usage": {
+    "pagesUsing": ["content/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-04-20T23:28:00.000Z"
+  }
+}

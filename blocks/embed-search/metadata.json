@@ -1,0 +1,31 @@
+{
+  "variantName": "embed-search",
+  "baseBlock": "embed",
+  "version": "1.0.0",
+  "created": "2026-04-20T23:28:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.flinders.edu.au/",
+    "originPage": "university homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "course-search",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "search dropdown widget",
+    "buttonCount": 0,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": ["search widgets", "interactive dropdowns", "course finders"],
+    "notSuitableFor": ["video embeds", "social media embeds"]
+  },
+  "usage": {
+    "pagesUsing": ["content/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-04-20T23:28:00.000Z"
+  }
+}

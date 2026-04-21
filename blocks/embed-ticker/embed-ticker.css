@@ -1,0 +1,18 @@
+/* Embed Ticker - Stats/ticker iframe embed */
+
+.embed-ticker {
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.embed-ticker > div {
+  display: flex;
+  justify-content: center;
+}
+
+.embed-ticker iframe {
+  width: 100%;
+  border: 0;
+  max-width: 1200px;
+}

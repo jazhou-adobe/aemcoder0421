@@ -1,0 +1,203 @@
+/* Cards Icon - Overlay image cards in horizontal scroll carousel */
+
+.cards-icon-container .cards-icon-wrapper {
+  max-width: unset;
+  padding: 0;
+  background-color: #fff;
+}
+
+.cards-icon .cards-icon-carousel {
+  position: relative;
+}
+
+/* Nav buttons - top right */
+.cards-icon .cards-icon-nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 0 24px 16px;
+}
+
+.cards-icon .cards-icon-nav button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 0;
+  background-color: var(--flinders-gold);
+  color: var(--flinders-navy);
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.cards-icon .cards-icon-nav button:hover {
+  background-color: var(--flinders-gold-hover);
+}
+
+/* Horizontal scroll track */
+.cards-icon .cards-icon-track {
+  list-style: none;
+  margin: 0;
+  padding: 0 24px;
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.cards-icon .cards-icon-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Card */
+.cards-icon .cards-icon-card {
+  flex: 0 0 260px;
+  scroll-snap-align: start;
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--flinders-navy);
+}
+
+/* Background image */
+.cards-icon .cards-icon-card-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.cards-icon .cards-icon-card-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Dark gradient overlay on cards with bg image */
+.cards-icon .cards-icon-card.has-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(to top, rgb(35 45 75 / 90%) 40%, rgb(35 45 75 / 20%) 70%, transparent);
+}
+
+/* Icon */
+.cards-icon .cards-icon-card-icon {
+  position: relative;
+  z-index: 2;
+  padding: 20px 20px 0;
+}
+
+.cards-icon .cards-icon-card-icon img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+/* Body content */
+.cards-icon .cards-icon-card-body {
+  position: relative;
+  z-index: 2;
+  padding: 8px 20px 20px;
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.cards-icon .cards-icon-card.has-bg .cards-icon-card-body {
+  margin-top: 0;
+  justify-content: flex-end;
+}
+
+.cards-icon .cards-icon-card-body h3 {
+  font-size: var(--heading-font-size-m);
+  color: #fff !important;
+  margin: 0 0 8px;
+  font-weight: 700;
+}
+
+.cards-icon .cards-icon-card-body p {
+  font-size: var(--body-font-size-s);
+  color: rgb(255 255 255 / 85%) !important;
+  margin: 0 0 8px;
+  line-height: 1.4;
+}
+
+/* CTA button - gold pill */
+.cards-icon .cards-icon-card-body p:last-child {
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+.cards-icon .cards-icon-card-body a {
+  display: inline-block;
+  background-color: var(--flinders-gold);
+  color: var(--flinders-navy) !important;
+  font-weight: 700;
+  font-size: var(--body-font-size-s);
+  text-decoration: none;
+  padding: 10px 24px;
+  border-radius: 50px;
+  transition: background-color 0.2s;
+}
+
+.cards-icon .cards-icon-card-body a:hover {
+  background-color: var(--flinders-gold-hover);
+}
+
+/* Section intro heading with gold highlight */
+.cards-icon-container > .default-content-wrapper {
+  background-color: #fff;
+  text-align: center;
+  padding: 48px 24px 16px;
+  max-width: unset;
+}
+
+.cards-icon-container > .default-content-wrapper h2 {
+  color: var(--flinders-navy);
+  text-align: center;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.cards-icon-container > .default-content-wrapper p {
+  max-width: 800px;
+  margin: 0 auto;
+  color: var(--text-color);
+}
+
+.cards-icon-container > .default-content-wrapper mark {
+  background-color: var(--flinders-gold);
+  color: inherit;
+  padding: 2px 0;
+}
+
+@media (width >= 600px) {
+  .cards-icon .cards-icon-card {
+    flex: 0 0 300px;
+  }
+}
+
+@media (width >= 900px) {
+  .cards-icon .cards-icon-nav {
+    padding: 0 48px 16px;
+  }
+
+  .cards-icon .cards-icon-track {
+    padding: 0 48px;
+  }
+
+  .cards-icon .cards-icon-card {
+    flex: 0 0 calc(20% - 16px);
+    min-height: 480px;
+  }
+}

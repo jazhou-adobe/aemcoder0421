@@ -1,0 +1,31 @@
+{
+  "variantName": "cards-news",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-04-20T23:28:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.flinders.edu.au/",
+    "originPage": "university homepage",
+    "blockPosition": "bottom"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "wide",
+    "purpose": "news-articles",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "image + headline + date per card",
+    "buttonCount": 0,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": ["news feeds", "article listings", "blog post cards"],
+    "notSuitableFor": ["icon-based feature cards", "video cards"]
+  },
+  "usage": {
+    "pagesUsing": ["content/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-04-20T23:28:00.000Z"
+  }
+}

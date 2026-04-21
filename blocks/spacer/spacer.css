@@ -1,0 +1,9 @@
+/* Spacer Block - Vertical spacing */
+
+.spacer-container .spacer-wrapper {
+  background-color: #fff;
+}
+
+.spacer {
+  display: block;
+}

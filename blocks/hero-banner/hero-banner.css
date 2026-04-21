@@ -1,0 +1,116 @@
+/* Hero Banner - Flinders University homepage hero */
+
+.hero-banner-container .hero-banner-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.hero-banner {
+  position: relative;
+  z-index: 0;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 48px 24px;
+  overflow: hidden;
+  background-color: var(--flinders-navy);
+}
+
+.hero-banner picture,
+.hero-banner > div:first-child {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+}
+
+.hero-banner img {
+  object-fit: cover;
+  object-position: center 40%;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-banner > div:last-child {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.hero-banner h1 {
+  font-family: var(--display-font-family);
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 400;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--flinders-gold);
+  margin: 0 0 24px;
+  max-width: 700px;
+}
+
+.hero-banner p {
+  color: #fff;
+  max-width: 800px;
+  font-size: var(--body-font-size-l);
+  margin: 0 0 16px;
+}
+
+.hero-banner > div:first-child div,
+.hero-banner > div:first-child p {
+  margin: 0;
+  height: 100%;
+  max-width: unset;
+}
+
+/* CTA buttons container - horizontal layout */
+.hero-banner > div:last-child > div:nth-child(2),
+.hero-banner > div:last-child > div:nth-child(3) {
+  display: inline-block;
+}
+
+.hero-banner a {
+  display: inline-block;
+  padding: 12px 32px;
+  border-radius: var(--button-border-radius);
+  font-weight: var(--button-font-weight);
+  font-size: var(--body-font-size-m);
+  text-decoration: none;
+  margin: 8px 8px 8px 0;
+  transition: var(--button-transition);
+}
+
+/* Primary CTA - Orange (second div in content row = first CTA after h1) */
+/* stylelint-disable-next-line no-descending-specificity */
+.hero-banner > div:last-child > div:nth-child(2) a {
+  background-color: var(--flinders-orange);
+  color: #fff;
+  border: 2px solid var(--flinders-orange);
+}
+
+.hero-banner > div:last-child > div:nth-child(2) a:hover {
+  background-color: var(--flinders-orange-hover);
+  border-color: var(--flinders-orange-hover);
+}
+
+/* Secondary CTA - White (third div in content row = second CTA) */
+/* stylelint-disable-next-line no-descending-specificity */
+.hero-banner > div:last-child > div:nth-child(3) a {
+  background-color: #fff;
+  color: var(--flinders-navy);
+  border: 2px solid #fff;
+}
+
+.hero-banner > div:last-child > div:nth-child(3) a:hover {
+  background-color: var(--light-color);
+}
+
+.hero-banner.no-image {
+  background-color: var(--flinders-navy);
+}
+
+@media (width >= 900px) {
+  .hero-banner {
+    min-height: 700px;
+    padding: 80px 48px;
+  }
+}

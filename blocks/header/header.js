@@ -98,14 +98,72 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
 
   // enable menu collapse on escape keypress
   if (!expanded || isDesktop.matches) {
-    // collapse menu on escape press
     window.addEventListener('keydown', closeOnEscape);
-    // collapse menu on focus lost
     nav.addEventListener('focusout', closeOnFocusLost);
   } else {
     window.removeEventListener('keydown', closeOnEscape);
     nav.removeEventListener('focusout', closeOnFocusLost);
   }
+}
+
+function createIcon(name) {
+  const span = document.createElement('span');
+  span.className = `icon icon-${name}`;
+  span.innerHTML = `<img data-icon-name="${name}" src="/icons/${name}.svg" alt="${name}" loading="lazy">`;
+  return span;
+}
+
+/**
+ * Builds the two-tier tools: utility bar (text links) + action icons
+ * @param {Element} navTools The nav-tools element
+ */
+function buildTwoTierTools(navTools) {
+  const allParagraphs = [...navTools.querySelectorAll('p')];
+  const utilityBar = document.createElement('div');
+  utilityBar.className = 'nav-utility';
+  const navActions = document.createElement('div');
+  navActions.className = 'nav-actions';
+
+  // First 3 are utility links (Staff, Students, Library)
+  // Remaining are icon-based actions
+  const utilityLinks = ['staff', 'students', 'library'];
+
+  allParagraphs.forEach((p) => {
+    const link = p.querySelector('a');
+    if (!link) return;
+    const text = link.textContent.trim().toLowerCase();
+
+    if (utilityLinks.some((u) => text.includes(u))) {
+      utilityBar.append(p);
+    } else if (text.includes(':phone:') || text.includes('phone')) {
+      link.textContent = '';
+      link.setAttribute('aria-label', 'Contact us');
+      link.append(createIcon('phone'));
+      p.classList.add('nav-action-icon');
+      navActions.append(p);
+    } else if (text.includes('quick links') || text.includes(':bookmark:')) {
+      const cleanText = link.textContent.replace(/:bookmark:/g, '').trim();
+      link.textContent = '';
+      link.append(document.createTextNode(cleanText));
+      link.append(document.createTextNode(' '));
+      link.append(createIcon('bookmark'));
+      link.setAttribute('aria-label', 'Quick links');
+      p.classList.add('nav-action-label');
+      navActions.append(p);
+    } else if (text.includes(':search:') || text.includes('search')) {
+      link.textContent = '';
+      link.setAttribute('aria-label', 'Search');
+      link.append(createIcon('search'));
+      p.classList.add('nav-action-icon');
+      navActions.append(p);
+    } else {
+      utilityBar.append(p);
+    }
+  });
+
+  navTools.textContent = '';
+  navTools.append(utilityBar);
+  navTools.append(navActions);
 }
 
 /**
@@ -137,8 +195,36 @@ export default async function decorate(block) {
     brandLink.closest('.button-container').className = '';
   }
 
+  // Replace brand text with official Flinders logos (white + dark for scroll state)
+  const brandAnchor = navBrand.querySelector('a');
+  if (brandAnchor) {
+    const logoWhite = document.createElement('img');
+    logoWhite.className = 'nav-logo nav-logo-white';
+    logoWhite.src = '/icons/flinders-logo.png';
+    logoWhite.alt = 'Flinders University';
+    logoWhite.height = 40;
+
+    const logoDark = document.createElement('img');
+    logoDark.className = 'nav-logo nav-logo-dark';
+    logoDark.src = '/icons/flinders-logo-dark.png';
+    logoDark.alt = 'Flinders University';
+    logoDark.height = 40;
+
+    brandAnchor.textContent = '';
+    brandAnchor.append(logoWhite);
+    brandAnchor.append(logoDark);
+  }
+
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
+    navSections.querySelectorAll('.button').forEach((button) => {
+      button.className = '';
+      const buttonContainer = button.closest('.button-container');
+      if (buttonContainer) {
+        buttonContainer.className = '';
+      }
+    });
+
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
       if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
       navSection.addEventListener('click', () => {
@@ -149,6 +235,17 @@ export default async function decorate(block) {
         }
       });
     });
+  }
+
+  // Split tools into utility bar + icon actions, placing them as direct nav children
+  const navTools = nav.querySelector('.nav-tools');
+  if (navTools) {
+    buildTwoTierTools(navTools);
+    const utilityBar = navTools.querySelector('.nav-utility');
+    const navActions = navTools.querySelector('.nav-actions');
+    if (utilityBar) nav.append(utilityBar);
+    if (navActions) nav.append(navActions);
+    navTools.remove();
   }
 
   // hamburger for mobile
@@ -168,4 +265,14 @@ export default async function decorate(block) {
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
   block.append(navWrapper);
+
+  // Scroll detection: toggle scrolled state for sticky gold nav
+  const scrollThreshold = 10;
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > scrollThreshold) {
+      navWrapper.classList.add('nav-scrolled');
+    } else {
+      navWrapper.classList.remove('nav-scrolled');
+    }
+  });
 }

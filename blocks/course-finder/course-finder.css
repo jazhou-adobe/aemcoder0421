@@ -1,0 +1,204 @@
+/* Course Finder Block */
+
+.course-finder-container {
+  padding: 0;
+}
+
+.course-finder-container .default-content-wrapper {
+  background-color: var(--flinders-navy);
+  color: #fff;
+  padding: 48px 24px 24px;
+  text-align: center;
+  max-width: unset;
+}
+
+.course-finder-container .default-content-wrapper h2 {
+  color: #fff;
+  margin: 0 0 8px;
+}
+
+.course-finder-container .default-content-wrapper p {
+  color: rgb(255 255 255 / 80%);
+  margin: 0;
+}
+
+.course-finder-container .course-finder-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.course-finder {
+  padding: 0;
+}
+
+/* Search area */
+.course-finder .course-finder-search {
+  background-color: var(--flinders-navy);
+  border-radius: 0;
+  padding: 24px 24px 32px;
+  margin-bottom: 0;
+}
+
+.course-finder .course-finder-search-box {
+  position: relative;
+}
+
+.course-finder .course-finder-search-box input {
+  width: 100%;
+  padding: 14px 48px 14px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: var(--body-font-size-m);
+  font-family: var(--body-font-family);
+  background: #fff;
+  color: var(--text-color);
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.course-finder .course-finder-search-box input:focus {
+  border-color: var(--flinders-navy);
+}
+
+.course-finder .course-finder-search-box input::placeholder {
+  color: var(--text-color-light);
+}
+
+.course-finder .course-finder-search-icon {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-color-light);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+}
+
+/* Toggle */
+.course-finder .course-finder-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.course-finder .course-finder-toggle-label {
+  font-size: var(--body-font-size-xs);
+  font-weight: var(--button-font-weight);
+  color: var(--text-color);
+  letter-spacing: 0.5px;
+}
+
+.course-finder .course-finder-toggle-buttons {
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: var(--button-border-radius);
+  overflow: hidden;
+}
+
+.course-finder .toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  border: none;
+  background: #fff;
+  cursor: pointer;
+  color: var(--text-color-light);
+  transition: var(--button-transition);
+}
+
+.course-finder .toggle-btn.active {
+  background: var(--light-color);
+  color: var(--flinders-navy);
+}
+
+.course-finder .toggle-btn:hover {
+  color: var(--flinders-navy);
+}
+
+/* Pills grid */
+.course-finder .course-finder-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.course-finder .course-finder-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border: 1px solid #ccc;
+  border-radius: var(--button-border-radius);
+  background: #fff;
+  color: var(--text-color);
+  font-size: var(--body-font-size-m);
+  font-family: var(--body-font-family);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: var(--button-transition);
+  cursor: pointer;
+  flex: 0 1 auto;
+}
+
+.course-finder .course-finder-pill:hover {
+  border-color: var(--flinders-navy);
+  color: var(--flinders-navy);
+}
+
+/* Action button - outlined */
+.course-finder .course-finder-pill-action {
+  border-color: var(--text-color-light);
+  font-weight: var(--button-font-weight);
+}
+
+.course-finder .course-finder-pill-action:hover {
+  border-color: var(--flinders-navy);
+  background: var(--light-color);
+}
+
+/* CTA button - filled navy */
+.course-finder .course-finder-pill-cta {
+  background: var(--flinders-navy);
+  color: #fff;
+  border-color: var(--flinders-navy);
+  font-weight: var(--button-font-weight);
+}
+
+.course-finder .course-finder-pill-cta:hover {
+  background: var(--midnight-blue);
+  border-color: var(--midnight-blue);
+  color: #fff;
+}
+
+/* Responsive */
+@media (width >= 600px) {
+  .course-finder .course-finder-pills {
+    gap: 12px;
+  }
+}
+
+@media (width >= 900px) {
+  .course-finder-container .default-content-wrapper {
+    padding: 64px 48px 24px;
+  }
+
+  .course-finder .course-finder-search {
+    padding: 24px 48px 40px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .course-finder .course-finder-pills {
+    padding: 32px 48px;
+  }
+}

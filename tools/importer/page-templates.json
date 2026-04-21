@@ -1,0 +1,127 @@
+{
+  "templates": [
+    {
+      "name": "homepage",
+      "urls": [
+        "https://www.flinders.edu.au/"
+      ],
+      "description": "Flinders University homepage with hero, navigation, featured content, and calls to action",
+      "blocks": [
+        {
+          "name": "hero-banner",
+          "instances": [".hero-banner.tabs .flinders-banner.flinders-image"]
+        },
+        {
+          "name": "embed-ticker",
+          "instances": [".iframe-component iframe[src*='slider.flinders.edu.au']"]
+        },
+        {
+          "name": "embed-search",
+          "instances": [".quick-search .quicksearch"]
+        },
+        {
+          "name": "carousel-feature",
+          "instances": [".flinders-banner.flinders-carousel"]
+        },
+        {
+          "name": "cards-video",
+          "instances": [".video-overlay.youtube-overlay-custom"]
+        },
+        {
+          "name": "cards-icon",
+          "instances": [
+            ".cmp-flindersonline-contentcard-carousel.carousel-0",
+            ".cmp-flindersonline-contentcard-carousel.carousel-1",
+            ".cmp-flindersonline-contentcard-carousel.carousel-2"
+          ]
+        },
+        {
+          "name": "cards-news",
+          "instances": [".news-feed-v2"]
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-1",
+          "name": "Hero Banner",
+          "selector": ".hero-banner.tabs",
+          "style": null,
+          "blocks": ["hero-banner"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-2",
+          "name": "About Intro",
+          "selector": "a#discover",
+          "style": "gold",
+          "blocks": [],
+          "defaultContent": ["#rte-795553330b h2", "#rte-8e88248a86 p", ".cta-button a[href='/about']"]
+        },
+        {
+          "id": "section-3",
+          "name": "Stats Ticker",
+          "selector": ".iframe-component",
+          "style": "gold",
+          "blocks": ["embed-ticker"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-4",
+          "name": "Course Search",
+          "selector": "a#courses",
+          "style": null,
+          "blocks": ["embed-search"],
+          "defaultContent": ["#rte-9966970261 h2", "#rte-d0d2960397 p"]
+        },
+        {
+          "id": "section-5",
+          "name": "Feature Carousel",
+          "selector": ".flinders-banner.flinders-carousel",
+          "style": null,
+          "blocks": ["carousel-feature"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-6",
+          "name": "Student Stories",
+          "selector": ".video-overlay.youtube-overlay-custom",
+          "style": null,
+          "blocks": ["cards-video"],
+          "defaultContent": ["#rte-15cf17507b h2"]
+        },
+        {
+          "id": "section-7",
+          "name": "Life at Flinders",
+          "selector": ".cmp-flindersonline-contentcard-carousel.carousel-0",
+          "style": null,
+          "blocks": ["cards-icon"],
+          "defaultContent": ["#rte-15cf17507b h2", "#rte-a4c9b218bd p"]
+        },
+        {
+          "id": "section-8",
+          "name": "Research",
+          "selector": ".cmp-flindersonline-contentcard-carousel.carousel-1",
+          "style": null,
+          "blocks": ["cards-icon"],
+          "defaultContent": ["#rte-1013ddc91a h2", "#rte-930fbc3a0e p"]
+        },
+        {
+          "id": "section-9",
+          "name": "Getting Started",
+          "selector": ".cmp-flindersonline-contentcard-carousel.carousel-2",
+          "style": "dark",
+          "blocks": ["cards-icon"],
+          "defaultContent": ["#rte-927c4e9322 p", "#rte-9cafd3cda3 h2"]
+        },
+        {
+          "id": "section-10",
+          "name": "News",
+          "selector": ".news-feed-v2",
+          "style": null,
+          "blocks": ["cards-news"],
+          "defaultContent": ["#rte-cc6b69dc17 h2"]
+        }
+      ]
+    }
+  ]
+}

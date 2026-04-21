@@ -1,0 +1,31 @@
+{
+  "variantName": "cards-video",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-04-20T23:28:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.flinders.edu.au/",
+    "originPage": "university homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "wide",
+    "purpose": "video-testimonials",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "video thumbnail + quote + student name per card",
+    "buttonCount": 0,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": ["student stories", "video testimonials", "video gallery grids"],
+    "notSuitableFor": ["text-only cards", "icon-based feature cards"]
+  },
+  "usage": {
+    "pagesUsing": ["content/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-04-20T23:28:00.000Z"
+  }
+}

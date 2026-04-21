@@ -1,0 +1,31 @@
+{
+  "variantName": "carousel-feature",
+  "baseBlock": "carousel",
+  "version": "1.0.0",
+  "created": "2026-04-20T23:28:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.flinders.edu.au/",
+    "originPage": "university homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "spacious",
+    "purpose": "feature-carousel",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "background image + icon + heading + description + CTA per slide",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": ["homepage feature highlights", "promotional slideshow", "multi-topic carousels"],
+    "notSuitableFor": ["simple image galleries", "text-only carousels"]
+  },
+  "usage": {
+    "pagesUsing": ["content/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-04-20T23:28:00.000Z"
+  }
+}

@@ -1,13 +1,13 @@
 /* Cards Icon - Overlay image cards in horizontal scroll carousel */
 
 .cards-icon-container .cards-icon-wrapper {
-  max-width: unset;
-  padding: 0;
+  padding: 0 0 40px;
   background-color: #fff;
 }
 
 .cards-icon .cards-icon-carousel {
   position: relative;
+  overflow: hidden;
 }
 
 /* Nav buttons - top right */
@@ -15,7 +15,7 @@
   display: flex;
   justify-content: flex-end;
   gap: 8px;
-  padding: 0 24px 16px;
+  padding: 0 0 16px;
 }
 
 .cards-icon .cards-icon-nav button {
@@ -38,27 +38,20 @@
   background-color: var(--flinders-gold-hover);
 }
 
-/* Horizontal scroll track */
+/* Sliding track - transform driven */
 .cards-icon .cards-icon-track {
   list-style: none;
   margin: 0;
-  padding: 0 24px;
+  padding: 0;
   display: flex;
   gap: 16px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-}
-
-.cards-icon .cards-icon-track::-webkit-scrollbar {
-  display: none;
+  transition: transform 0.4s ease;
+  will-change: transform;
 }
 
 /* Card */
 .cards-icon .cards-icon-card {
-  flex: 0 0 260px;
-  scroll-snap-align: start;
+  flex: 0 0 260px; /* fallback; JS overrides with computed width */
   position: relative;
   border-radius: 16px;
   overflow: hidden;
@@ -159,8 +152,7 @@
 .cards-icon-container > .default-content-wrapper {
   background-color: #fff;
   text-align: center;
-  padding: 48px 24px 16px;
-  max-width: unset;
+  padding: 48px 0 16px;
 }
 
 .cards-icon-container > .default-content-wrapper h2 {
@@ -181,23 +173,16 @@
   padding: 2px 0;
 }
 
-@media (width >= 600px) {
-  .cards-icon .cards-icon-card {
-    flex: 0 0 300px;
-  }
-}
-
 @media (width >= 900px) {
   .cards-icon .cards-icon-nav {
-    padding: 0 48px 16px;
+    padding: 0 0 16px;
   }
 
   .cards-icon .cards-icon-track {
-    padding: 0 48px;
+    padding: 0;
   }
 
   .cards-icon .cards-icon-card {
-    flex: 0 0 calc(20% - 16px);
     min-height: 480px;
   }
 }

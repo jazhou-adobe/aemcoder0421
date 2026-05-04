@@ -40,6 +40,20 @@ export function showSlide(block, slideIndex = 0) {
   });
 }
 
+const AUTOPLAY_INTERVAL = 5000;
+
+function startAutoplay(block) {
+  if (block.autoplayTimer) return;
+  block.autoplayTimer = setInterval(() => {
+    showSlide(block, parseInt(block.dataset.activeSlide, 10) + 1);
+  }, AUTOPLAY_INTERVAL);
+}
+
+function stopAutoplay(block) {
+  clearInterval(block.autoplayTimer);
+  block.autoplayTimer = null;
+}
+
 function bindEvents(block) {
   const slideIndicators = block.querySelector('.carousel-feature-slide-indicators');
   if (!slideIndicators) return;
@@ -52,11 +66,20 @@ function bindEvents(block) {
   });
 
   block.querySelector('.slide-prev').addEventListener('click', () => {
+    stopAutoplay(block);
     showSlide(block, parseInt(block.dataset.activeSlide, 10) - 1);
+    startAutoplay(block);
   });
   block.querySelector('.slide-next').addEventListener('click', () => {
+    stopAutoplay(block);
     showSlide(block, parseInt(block.dataset.activeSlide, 10) + 1);
+    startAutoplay(block);
   });
+
+  block.addEventListener('mouseenter', () => stopAutoplay(block));
+  block.addEventListener('mouseleave', () => startAutoplay(block));
+  block.addEventListener('focusin', () => stopAutoplay(block));
+  block.addEventListener('focusout', () => startAutoplay(block));
 
   const slideObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -66,6 +89,8 @@ function bindEvents(block) {
   block.querySelectorAll('.carousel-feature-slide').forEach((slide) => {
     slideObserver.observe(slide);
   });
+
+  startAutoplay(block);
 }
 
 function createSlide(row, slideIndex, carouselId) {

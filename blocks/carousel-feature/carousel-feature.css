@@ -4,8 +4,7 @@
 
 /* Override gold section background - carousel-feature should be on white */
 .carousel-feature-container .carousel-feature-wrapper {
-  max-width: unset;
-  padding: 0;
+  padding: 0 0 40px;
   background-color: #fff;
 }
 
@@ -46,7 +45,7 @@
   position: relative;
   width: 100%;
   min-height: 420px;
-  border-radius: 0;
+  border-radius: 16px;
   overflow: hidden;
   background-color: var(--flinders-navy);
 }
@@ -71,9 +70,30 @@
   z-index: 1;
   position: relative;
   margin-top: auto;
-  padding: 24px;
+  padding: 32px 24px;
   color: #fff;
-  background: linear-gradient(to top, rgb(35 45 75 / 95%) 60%, transparent);
+  background: linear-gradient(to right, rgb(0 0 0 / 80%) 0%, rgb(0 0 0 / 55%) 45%, transparent 80%),
+    linear-gradient(to top, rgb(0 0 0 / 60%) 0%, transparent 60%);
+}
+
+.carousel-feature .carousel-feature-slide .carousel-feature-slide-content p {
+  color: rgb(255 255 255 / 85%) !important;
+  font-size: var(--body-font-size-s);
+  line-height: 1.5;
+  margin: 0 0 16px;
+}
+
+/* Badge pill - first <p> before h2 */
+.carousel-feature .carousel-feature-slide .carousel-feature-slide-content p:first-child {
+  display: inline-block;
+  background-color: var(--flinders-gold);
+  color: var(--flinders-navy) !important;
+  font-size: var(--body-font-size-xs);
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: var(--button-border-radius);
+  margin: 0 0 16px;
+  line-height: 1.4;
 }
 
 .carousel-feature .carousel-feature-slide .carousel-feature-slide-content h2 {
@@ -85,22 +105,15 @@
   margin-bottom: 8px;
 }
 
-.carousel-feature .carousel-feature-slide .carousel-feature-slide-content p {
-  color: rgb(255 255 255 / 85%) !important;
-  font-size: var(--body-font-size-s);
-  line-height: 1.4;
-  margin: 0 0 8px;
-}
-
 .carousel-feature .carousel-feature-slide .carousel-feature-slide-content a {
   color: #fff !important;
   font-weight: var(--button-font-weight);
-  text-decoration: none;
+  text-decoration: underline;
   font-size: var(--body-font-size-s);
 }
 
 .carousel-feature .carousel-feature-slide .carousel-feature-slide-content a:hover {
-  color: var(--flinders-gold);
+  color: var(--flinders-gold) !important;
 }
 
 /* Slide indicators - hidden in favor of nav buttons */
@@ -166,12 +179,12 @@
   }
 
   .carousel-feature .carousel-feature-slide .carousel-feature-slide-content {
-    padding: 40px 48px;
-    max-width: 600px;
+    padding: 48px 56px;
+    max-width: 560px;
   }
 
   .carousel-feature .carousel-feature-navigation-buttons {
-    right: 48px;
-    bottom: 40px;
+    right: 40px;
+    bottom: 32px;
   }
 }

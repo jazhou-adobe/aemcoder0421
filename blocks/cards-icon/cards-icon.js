@@ -75,15 +75,41 @@ export default function decorate(block) {
   block.textContent = '';
   block.append(container);
 
-  // Scroll behavior
+  const cards = [...track.querySelectorAll('li')];
+  const GAP = 16;
+  let currentIndex = 0;
+
+  function getVisible() {
+    return window.innerWidth >= 900 ? 3 : 1;
+  }
+
+  function updateCardWidths() {
+    const visible = getVisible();
+    const containerWidth = container.offsetWidth;
+    const cardWidth = Math.floor((containerWidth - GAP * (visible - 1)) / visible);
+    cards.forEach((card) => { card.style.flexBasis = `${cardWidth}px`; });
+  }
+
+  function goTo(index) {
+    const maxIdx = cards.length - getVisible();
+    if (index < 0) currentIndex = maxIdx;
+    else if (index > maxIdx) currentIndex = 0;
+    else currentIndex = index;
+    const cardWidth = cards[0].offsetWidth;
+    track.style.transform = `translateX(-${currentIndex * (cardWidth + GAP)}px)`;
+  }
+
   const prevBtn = nav.querySelector('.cards-icon-prev');
   const nextBtn = nav.querySelector('.cards-icon-next');
-  const cardWidth = () => (track.querySelector('li')?.offsetWidth || 280) + 16;
+  prevBtn.addEventListener('click', () => goTo(currentIndex - 1));
+  nextBtn.addEventListener('click', () => goTo(currentIndex + 1));
 
-  prevBtn.addEventListener('click', () => {
-    track.scrollBy({ left: -cardWidth(), behavior: 'smooth' });
-  });
-  nextBtn.addEventListener('click', () => {
-    track.scrollBy({ left: cardWidth(), behavior: 'smooth' });
+  updateCardWidths();
+  goTo(0);
+
+  window.addEventListener('resize', () => {
+    currentIndex = 0;
+    updateCardWidths();
+    goTo(0);
   });
 }
